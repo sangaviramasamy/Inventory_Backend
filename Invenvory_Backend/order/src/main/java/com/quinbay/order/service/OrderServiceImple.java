@@ -35,10 +35,10 @@ public class OrderServiceImple implements OrderService{
 
     @Override
     public String placeOrder(Order order) {
-         List<Order> orders = Collections.singletonList(order);
+        List<Order> orders = Collections.singletonList(order);
 
-         int id = order.getProductId();
-         int quantity = order.getProductQuantity();
+        int id = order.getProductId();
+        int quantity = order.getProductQuantity();
 
         List<ProductVo> prodList = getById(id);
 
@@ -50,11 +50,9 @@ public class OrderServiceImple implements OrderService{
                 int quanCheck = prod.getQuantity() - quantity;
                 if(quanCheck > 0){
                     prod.setQuantity(order.getProductQuantity());
-                    OrderRepository.save(objectMapper.convertValue(order, Order.class));
+                    OrderRepository.saveAll(orders);
+
                     updateProductDb(prod);
-                }
-                else{
-                    return "added";
                 }
 
 
@@ -65,21 +63,10 @@ public class OrderServiceImple implements OrderService{
             return "product unavailable";
         }
 
-//
-//        ProductVo prod = prodList.get(0);
-
-//        if (!prodList.isEmpty()) {
-//            int prodQuantity = prod.getQuantity();
-//
-//
-//        } else {
-//            return "product unavailable";
-//        }
 
 
-         OrderRepository.saveAll(orders);
 
-         return "Order Placed";
+        return "Order Placed";
     }
 
 

@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/httpmethod")
+@CrossOrigin(origins="*")
 public class HttpMethodController {
 
     @Autowired
@@ -22,6 +23,7 @@ public class HttpMethodController {
 
     @PostMapping("/placeOrder")
     public String saveProductDetails(@RequestBody Order ord){
+
         return oredrRepository.placeOrder(ord);
     }
 

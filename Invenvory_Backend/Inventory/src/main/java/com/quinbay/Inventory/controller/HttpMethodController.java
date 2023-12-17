@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/httpmethod")
+@CrossOrigin(origins="*")
 public class HttpMethodController {
 
     @Autowired
@@ -64,36 +65,4 @@ public class HttpMethodController {
         return ProductServices.getRedis(key,details);
     }
 
-
-
-
-//    @GetMapping("/productget/{prodId}")
-//    public List<Product> getById(
-//            @PathVariable("prodId") Long prodId){
-//        return ProductServices.getProductsById(Arrays.asList(prodId));
-//    }
-
-//    @PostMapping("/products/set")
-//    public List<Inventory> setProductDetails(@RequestBody Inventory product)
-//    {
-//        return ProductServices.setProductDetails(product);
-//    }
-
-
-
-
-
-//    @PostMapping("/product/send")
-//    public String sendProductDetails(@RequestBody ProductVo product)
-//    {
-//        return ProductServices.sendProductList(product);
-//    }
-
-
-
-//    @DeleteMapping("/products/delete")
-//    public String deleteProductDetails(@RequestParam int prodId)
-//    {
-//        return ProductServices.deleteProductDetails(prodId);
-//    }
 }
