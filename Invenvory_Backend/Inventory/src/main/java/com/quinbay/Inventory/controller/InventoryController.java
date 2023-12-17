@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/httpmethod")
 @CrossOrigin(origins="*")
-public class HttpMethodController {
+public class InventoryController {
 
     @Autowired
     InventoryService ProductServices;

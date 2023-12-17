@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/httpmethod")
-public class HttpMethodController {
+public class CustomerController {
 
     @Autowired
     CustomerServices customerInterface;

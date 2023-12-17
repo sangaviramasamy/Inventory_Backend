@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/httpmethod")
-public class HttpMethodController {
+public class PersonalizeController {
 
     @Autowired
     PersonalizeService PersonalizeService;

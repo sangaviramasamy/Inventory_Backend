@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/httpmethod")
 @CrossOrigin(origins="*")
-public class HttpMethodController {
+public class OrderController {
 
     @Autowired
     OrderService oredrRepository;
