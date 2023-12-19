@@ -2,23 +2,19 @@ package testing;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.List;
-public class TicketBooking {
-    public static void main(String args[]) throws InterruptedException {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://www.ixigo.com/");
+public class Navigation {
+    public static void NavigationFlow(ChromeDriver driver,String url)throws InterruptedException{
+
+        driver.get(url);
         Thread.sleep(2000);
 
         WebElement Buses = driver.findElement(By.xpath("//nav[@class = 'nav-list']//span//a[@data='2']"));
         Buses.click();
 
         WebElement frominput = driver.findElement(By.xpath("//div[@id='search-from']//input[@placeholder='From Station']"));
-        frominput.sendKeys("Chennai");
+        frominput.sendKeys("Coimbatore");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//li[@class='collection-item auto-complete-list-item ']//div[@class='station-body col']//div//div")).click();
 
@@ -65,39 +61,8 @@ public class TicketBooking {
         depaturebtn.click();
 
         //button[@class='btn bus-info-btn filled primary sm inactive button']
-        WebElement setseat = driver.findElement(By.xpath(" //button[@class='btn bus-info-btn filled primary sm inactive button']"));
-        setseat.click();
-
-        //table[@id='seat-layout-details']//td//div//button//span[text()='U8']
-        Thread.sleep(2000);
-
-        int[][] seatArray = {
-                {8, 10, 12, 14, 16},
-                {7, 9, 11, 13, 15},
-                {1, 2, 3, 4, 5}
-        };
-
-        System.out.println("Selected Seats : ");
-        for (int row = 0; row < seatArray.length; row++) {
-            for (int col = 0; col < seatArray[row].length; col ++) {
-
-                if(col%2==0) {
-                    int seatNumber = seatArray[row][col];
-
-                    String seat = "//table[@id='seat-layout-details']//td//div//button//span[text()='U" + seatNumber + "']";
-                    WebElement seatButton = driver.findElement(By.xpath(seat));
-                    System.out.println(seatNumber);
-                    seatButton.click();
-                }
-
-            }
-        }
-
-        //input[@placeholder='Search Boarding Point']
-        WebElement bordings = driver.findElement(By.xpath("//div[@id='place-container']//div//label//div"));
-        bordings.click();
-        Thread.sleep(1000);
-
+        WebElement setseatss = driver.findElement(By.xpath(" //button[@class='btn bus-info-btn filled primary sm inactive button']"));
+        setseatss.click();
 
     }
 
